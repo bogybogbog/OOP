@@ -1,4 +1,10 @@
 // ! OOP ====> Object Orieanted Programming  ===> simulate reality
+/**
+ * * inheritance
+ * * polymerphism   ===> override (supported), overloading (not supported)
+ * * abstraction    ===> (not supported)
+ * * encapsulation
+ */
 // ? class-based, prototype-based  "self ==> (an old programing lang)"
 // let human = {
 //   fName: "ahmed",
@@ -46,7 +52,7 @@
 //   }
 //   welcome() {
 //     let x = "hello";
-//     console.log(x + " " + this.fName);  // we have to use this. inside the method to access any properity
+//     console.log(x + " " + this.fName);  // we have to use this. inside the method to access any property
 //   }
 // }
 // User.prototype.welcome = function () {
@@ -63,24 +69,66 @@
 // console.log(user1);
 
 class User {
+  #userName;
+  age;
   constructor(userName, age, gender, salary) {
-    this.userName = userName;
+    // this.userName = userName;
+    this.#userName = userName;
     this.age = age;
     this.gender = gender;
     this.salary = salary;
   }
   welcome() {
-    console.log("welocme " + this.userName);
+    // console.log("welocme " + this.#userName);
+    console.log("welocme " + this.#userName);
   }
 }
-
+let user1 = new User("ahmed", 22, "male", 4000)  // we can access the private userName cuz its insise a method
+user1.welcome()
 class Eng extends User {
   constructor(userName, age, gender, salary, dep, uni) {
     super(userName, age, gender, salary);
     this.dep = dep;
     this.uni = uni;
   }
+  welcome() {
+    console.log("welocme ENG"); // override
+  }
 }
 let eng1 = new Eng("ahmed", 22, "male", 4000, "CS", "cairo");
 console.log(eng1);
-eng1.welcome();
+eng1.welcome(); // it will print the overrided method
+
+/**
+ * ! ACCSESS MODIFIRES
+ * ? public: inside & outside
+ * ? private: inside  ===> if u wanna use it put "#" b4 the property
+ * ? proteted: inside & inherited  ===> (not supported)
+ */
+
+
+// ! Functional programming
+
+/**
+ * ? assign function to variable
+ * ? pass function to function as prameter
+ * ? return function inside function 
+ * ? make function as property inside object
+ */
+
+// 1- let x = function(){}
+// 2- function one(two){}
+// function two(){}
+//  3- function calcSalary(){
+
+
+//   function calcTax(){
+
+//   }
+//   return calcTax()
+// }
+
+// 4- let x = {
+//   userName: "ahmed",
+//   isAlive: function(){}
+// }
